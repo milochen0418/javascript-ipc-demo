@@ -15,7 +15,7 @@
     </div>
     
   </body>
-  <!-- some javascript .js1 -->
+  <!-- some javascript .js for caller -->
   <script type="text/javascript">
     
     function caller_add_of_ipc(num1, num2) {
@@ -32,7 +32,7 @@
 
     
   </script>
-  <!-- some javascript .js2 -->
+  <!-- some javascript .js for callee -->
   <script type="text/javascript">
     document.getElementById("js_ipc").addEventListener('click', (e)=>{
       callee_add_of_ipc(e.arguments);
