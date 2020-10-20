@@ -1,0 +1,49 @@
+<html>
+  <head>
+  <style>
+    .btn {
+      background-color:red;
+      cursor:pointer;
+      display:inline-block;
+    }
+  </style>
+  </head>
+  <body>
+    <div id="js_ipc" style="display:none;"></div>
+    <div id="test_btn" class="btn">
+      <a><p>click to test</p></a>
+    </div>
+    
+  </body>
+  <!-- some javascript .js1 -->
+  <script type="text/javascript">
+    
+    function caller_add_of_ipc(num1, num2) {
+      var e = new Event("click");
+      e.arguments = arguments;
+      document.getElementById("js_ipc").dispatchEvent(e);
+    }
+    
+    
+    document.getElementById("test_btn").addEventListener('click', function(e) {
+      console.log("click to invoke caller of IPC");
+      caller_add_of_ipc(33, 22);      
+    });
+
+    
+  </script>
+  <!-- some javascript .js2 -->
+  <script type="text/javascript">
+    document.getElementById("js_ipc").addEventListener('click', (e)=>{
+      callee_add_of_ipc(e.arguments);
+    });    
+    
+    function callee_add_of_ipc(arguments) {
+      let num1 = arguments[0];
+      let num2 = arguments[1];
+      console.log("This is callee of IPC -- inner-communication process");
+      console.log( "num1 + num2 = " + (num1 + num2));
+    }
+  </script>
+    
+</html>
