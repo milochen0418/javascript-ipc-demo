@@ -4,5 +4,8 @@ This project show how one javascript can call another function in another javasc
 # index.html 
 This file show how different javascript content of tag can call each other through DOM  
 
-# index.html
+# index2.html
 This file show how they can call each other through DOM when two javascript code in two .js file  
+
+# index3.html
+When callee .js is put before caller .js , then the IPC is still work. 
